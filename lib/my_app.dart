@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    final themeData = ThemeData(primarySwatch: Colors.red);
+    final themeData = ThemeData(primarySwatch: Colors.blue);
 
     final defaultTheme = StreamChatThemeData.fromTheme(themeData);
 
