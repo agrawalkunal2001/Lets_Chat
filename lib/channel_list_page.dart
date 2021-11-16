@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lets_chat/translations.dart';
 import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 
 import 'channel_page.dart';
@@ -10,7 +11,7 @@ class ChannelListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Let's Chat"),
+        title: Text(Translations.of(context)!.text("title")),
       ),
       body: ChannelsBloc(
         child: ChannelListView(
