@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:lets_chat/translations.dart';
 import 'package:stream_chat_flutter/stream_chat_flutter.dart';
-
+import 'package:flutter/foundation.dart';
+import 'package:stream_chat_localizations/stream_chat_localizations.dart';
 import 'channel_list_page.dart';
 
 class MyApp extends StatelessWidget {
@@ -27,20 +29,32 @@ class MyApp extends StatelessWidget {
     ));
 
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Lets Chat',
-      theme: themeData,
-      builder: (context, child) {
-        return StreamChat(
-          child: child,
-          client: client,
-          streamChatThemeData: customTheme,
-        );
-      },
-      home: StreamChannel(
-        channel: channel,
-        child: ChannelListPage(),
-      ),
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'Lets Chat',
+        theme: themeData,
+        builder: (context, child) {
+          return StreamChat(
+            child: child,
+            client: client,
+            streamChatThemeData: customTheme,
+          );
+        },
+        home: StreamChannel(
+          channel: channel,
+          child: ChannelListPage(),
+        ),
+        supportedLocales: const [
+          Locale('en'),
+          Locale('es'),
+          Locale("hi"),
+          Locale("fr"),
+          Locale("it"),
+          Locale("ja"),
+          Locale("ko"),
+        ],
+        localizationsDelegates: [
+          const TranslationsDelegate(),
+          ...GlobalStreamChatLocalizations.delegates,
+        ]);
   }
 }
